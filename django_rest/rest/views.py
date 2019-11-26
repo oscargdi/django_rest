@@ -8,4 +8,4 @@ from .serializers import TaskSerializer
 
 class TaskView(viewsets.ModelViewSet):
     queryset = Task.objects.all()
-    serializer = TaskSerializer
+    serializer_class = TaskSerializer
