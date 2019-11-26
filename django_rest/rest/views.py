@@ -1,7 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from rest_framework import viewsets
 
+from .models import Task
+from .serializers import TaskSerializer
 
 # Create your views here.
-def get_home(request):
-    return HttpResponse('<h1>Hello world</h1>')
+
+
+class TaskView(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer = TaskSerializer
