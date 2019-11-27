@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import permissions, viewsets
 
 from .models import Project, Tag, Task
 from .serializers import ProjectSerializer, TagSerializer, TaskSerializer
@@ -9,6 +9,7 @@ from .serializers import ProjectSerializer, TagSerializer, TaskSerializer
 class TaskView(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class TagView(viewsets.ModelViewSet):
