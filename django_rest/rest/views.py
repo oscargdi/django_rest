@@ -9,7 +9,6 @@ from .serializers import ProjectSerializer, TagSerializer, TaskSerializer
 class TaskView(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class TagView(viewsets.ModelViewSet):
