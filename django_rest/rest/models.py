@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -27,7 +26,7 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True)
-    due_date = models.DateTimeField(default=datetime.now)
+    due_date = models.DateTimeField(default=timezone.now)
     project = models.ForeignKey(Project, null=True, on_delete=models.CASCADE)
     tag = models.ManyToManyField(Tag)
 
