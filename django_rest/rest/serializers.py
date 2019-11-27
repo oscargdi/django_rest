@@ -6,7 +6,8 @@ from .models import Project, Tag, Task
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
-        fields = ('id', 'url', 'title', 'description', 'due_date')
+        fields = ('id', 'url', 'title', 'description',
+                  'due_date', 'project', 'tag')
 
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
